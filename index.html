@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NIKISH M</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0713;--card:#150e24;--line:#2a1f45;--tx:#ece7f7;--mut:#9d90bd;--pu:#a855f7;--pu2:#7c3aed;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;counter-reset:s;overflow-x:hidden;background-image:radial-gradient(600px 400px at 80% -5%,#7c3aed33,transparent),radial-gradient(500px 400px at 0% 40%,#a855f71a,transparent)}
+nav{position:fixed;top:0;left:0;right:0;z-index:9;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 5vw 12px;background:#0b0713cc;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+h1,h2,h3,nav b,.btn,.tag,.chip,small{font-family:"Space Grotesk",Inter,system-ui,sans-serif}
+nav b{letter-spacing:.14em;color:var(--pu);font-weight:700}
+nav div{display:flex;gap:18px}
+nav a{color:var(--mut);text-decoration:none;font-size:.9rem;transition:.2s}
+nav a:hover{color:var(--tx)}
+section{max-width:900px;margin:auto;padding:90px 5vw 30px}
+#home{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.tag{color:var(--pu);letter-spacing:.32em;font-size:.78rem;font-weight:500;text-transform:uppercase}
+h1{font-size:clamp(3rem,14vw,7rem);font-weight:700;letter-spacing:-.04em;line-height:.98;margin:14px 0 22px;background:linear-gradient(90deg,#fff,var(--pu));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(1.9rem,6vw,2.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:28px;counter-increment:s}
+h2::before{content:"0" counter(s) " /";display:block;font-size:.8rem;font-weight:500;letter-spacing:.25em;color:var(--pu);margin-bottom:10px}
+h3{font-size:1.25rem;font-weight:700;letter-spacing:-.01em;color:var(--tx)}
+h2::after{content:"";display:block;width:0;transition:width 1s .3s ease;height:3px;background:var(--pu);margin-top:8px;border-radius:2px}
+p{color:var(--mut);font-size:1.05rem;line-height:1.8}
+#home p{font-size:clamp(1.1rem,3.5vw,1.4rem);color:#c9bfe3}
+.btn{letter-spacing:.03em;display:inline-block;margin-top:24px;padding:12px 26px;border-radius:999px;background:linear-gradient(90deg,var(--pu2),var(--pu));color:#fff;text-decoration:none;border:0;font:inherit;font-weight:600;cursor:pointer;box-shadow:0 8px 30px #7c3aed55;transition:.25s}
+.btn:hover{transform:translateY(-3px)}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{font-size:1rem;font-weight:500;letter-spacing:.02em;padding:10px 22px;border:1px solid var(--line);background:var(--card);border-radius:999px;transition:.25s}
+.chip:hover{border-color:var(--pu);transform:translateY(-3px)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.25s}
+.card:hover{border-color:var(--pu);transform:translateY(-4px)}
+.tl{position:relative;border-left:2px solid var(--line);padding-left:26px;display:grid;gap:22px}
+.tl::after{content:"";position:absolute;left:-2px;top:0;width:2px;height:calc(var(--p,0)*100%);background:linear-gradient(var(--pu2),var(--pu))}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-35px;top:24px;width:14px;height:14px;border-radius:50%;background:var(--line);transition:background .6s,box-shadow .6s;z-index:1}
+.tl .card.on::before{background:var(--pu);box-shadow:0 0 10px 2px var(--pu)}
+.tl small{color:var(--pu);font-weight:500;letter-spacing:.15em}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tx);font:inherit}
+input:focus,textarea:focus{outline:0;border-color:var(--pu)}
+#msgs{display:grid;gap:10px;margin-top:20px}
+.msg{padding:12px 16px;border-left:3px solid var(--pu);background:var(--card);border-radius:8px}
+.msg small{color:var(--mut)}
+.social{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.social a{color:var(--tx);text-decoration:none;padding:10px 20px;border:1px solid var(--line);border-radius:999px;transition:.25s}
+.social a:hover{border-color:var(--pu);color:var(--pu)}
+footer{text-align:center;color:var(--mut);padding:40px 5vw;font-size:.85rem}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.l{transform:translateX(-50px)}
+.rv.r{transform:translateX(50px)}
+.rv.z{transform:scale(.85) translateY(20px)}
+.rv.on{opacity:1;transform:none}
+.card.rv.on:hover,.chip.rv.on:hover{transform:translateY(-4px)}
+.rv.on>h2::after{width:56px}
+nav a{position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--pu2),var(--pu));transform:scaleX(0);transform-origin:50% 50%;transition:transform .35s ease,box-shadow .35s ease}
+nav a.act{color:var(--tx)}
+nav a.act::after{transform:scaleX(1);box-shadow:0 0 8px 1px var(--pu),0 0 18px 3px #a855f7aa}
+.mq{overflow:hidden;white-space:nowrap;padding:10px 0}
+.mq span{display:inline-block;font:700 clamp(3rem,13vw,7rem)/1 "Space Grotesk",Inter,sans-serif;text-transform:uppercase;letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1px #a855f788;will-change:transform}
+#up{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:9;width:46px;height:46px;border-radius:50%;border:1px solid var(--pu);background:#150e24ee;color:var(--pu);font-size:1.2rem;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(20px);transition:.35s}
+#up.show{opacity:1;pointer-events:auto;transform:none}
+#bar{position:fixed;top:0;left:0;right:0;height:3px;z-index:10;background:linear-gradient(90deg,var(--pu2),var(--pu));transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 12px var(--pu)}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.3;z-index:-1;pointer-events:none;will-change:transform}
+.b1{width:340px;height:340px;background:#7c3aed;top:-80px;right:-80px}
+.b2{width:300px;height:300px;background:#a855f7;bottom:-60px;left:-90px}
+h1{animation:in 1.2s cubic-bezier(.2,.7,.2,1) both}
+.an-link {
+    color: #4B1F6F;
+    text-decoration: none;
+}
+
+.an-link:hover {
+    color: #6A2C91;
+}
+@keyframes in{from{opacity:0;letter-spacing:.1em;filter:blur(10px)}}
+@media(max-width:560px){nav div{gap:12px}nav a{font-size:.78rem}section{padding-top:80px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}h1{animation:none}.blob{display:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="bar"></div><div class="blob b1"></div><div class="blob b2"></div>
+<nav><b>NIKISH M</b><div><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a></div></nav>
+
+<section id="home" class="rv">
+<span class="tag">B.Tech · Information Technology</span>
+<h1>NIKISH M</h1>
+<p style="max-width:520px">Building simple, clean things for the web and beyond.</p>
+<div><a class="btn" href="#contact">Get in touch</a></div>
+</section>
+
+<div class="mq" aria-hidden="true"><span id="mqs">B.Tech IT &bull; Code &bull; Design &bull; Create &bull; B.Tech IT &bull; Code &bull; Design &bull; Create &bull; B.Tech IT &bull; Code &bull; Design &bull; Create</span></div>
+
+<section id="about" class="rv">
+<h2>About</h2>
+<p>I’m a B.Tech Information Technology student passionate about turning ideas into meaningful digital experiences. I learn by building, experiment with technology, and continuously explore new ways to create, improve, and innovate.
+</p>
+</section>
+
+<section id="skills" class="rv">
+<h2>Skills</h2>
+<div class="chips"><span class="chip">HTML</span>
+    
+    <span class="chip">CSS</span><span class="chip">Python</span>
+    <span class="chip">SQL</span>
+    <span class="chip">Adobe Photoshop</span>
+    <span class="chip">Adobe Illustrator</span>
+</div>
+</section>
+
+<section id="projects" class="rv">
+<h2>Projects</h2>
+<div class="card"><h3>Flappy Bird Game</h3><p style="margin-top:6px">A recreation of the classic arcade game: tap to flap, dodge the pipes and beat your high score.</p>
+    <a href="https://github.com/Exos-Niki/Flappy-Bird" target="_blank" class="an-link" rel="noopener noreferrer"> Click here</a>
+</div>
+</section>
+
+<section id="education" class="rv">
+<h2>Education</h2>
+<div class="tl">
+<div class="card"><small>2025 – 2029</small><h3>Info Institute of Engineering</h3><p>B.Tech, Information Technology</p></div>
+<div class="card"><small>2024 – 2025</small><h3>National Public School</h3><p>CBSE · 12th</p></div>
+<div class="card"><small>2022 – 2023</small><h3>National Public School</h3><p>CBSE · 10th</p></div>
+</div>
+</section>
+
+<section id="contact" class="rv">
+<h2>Contact</h2>
+<form id="f">
+<input id="n" placeholder="Your name" required maxlength="60">
+<textarea id="m" rows="4" placeholder="Your message" required maxlength="500"></textarea>
+<button class="btn" style="margin:0" type="submit">Send message</button>
+</form>
+<p id="st" style="margin-top:14px"></p>
+<div class="social">
+<a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://github.com/Exos-Niki" target="_blank" rel="noopener">GitHub</a>
+</div>
+</section>
+
+<button id="up" aria-label="Back to top" onclick="scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+<footer>© 2026 NIKISH M</footer>
+
+<script>
+document.querySelectorAll('.tl .card').forEach((c,i)=>c.classList.add('rv',i%2?'r':'l'));
+document.querySelectorAll('.chip,#projects .card').forEach((c,i)=>{c.classList.add('rv','z');c.style.transitionDelay=(i*.13)+'s'});
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){const t=x.target;t.classList.add('on');io.unobserve(t);if(t.style.transitionDelay)setTimeout(()=>t.style.transitionDelay='',1800)}}),{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const bar=document.getElementById('bar'),b1=document.querySelector('.b1'),b2=document.querySelector('.b2'),tl=document.querySelector('.tl'),h1=document.querySelector('h1');
+let tk=false,ly=0;
+const nav=document.querySelector('nav'),up=document.getElementById('up'),mqs=document.getElementById('mqs'),home=document.getElementById('home'),links=[...document.querySelectorAll('nav a')];
+const spy=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){links.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+x.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(el=>spy.observe(el));
+function upd(){tk=false;const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+b1.style.transform='translate3d(0,'+(y*.25)+'px,0)';b2.style.transform='translate3d(0,'+(-y*.15)+'px,0)';
+if(y<innerHeight)h1.style.transform='translateY('+(y*.15)+'px)';
+up.classList.toggle('show',y>500);
+mqs.style.transform='translate3d('+((mqs.parentNode.getBoundingClientRect().top-innerHeight)*.7)+'px,0,0)';
+if(y>10)home.style.opacity=Math.max(0,1-y/(innerHeight*.75));
+const r=tl.getBoundingClientRect();tl.style.setProperty('--p',Math.max(0,Math.min(1,(innerHeight*.7-r.top)/r.height)))}
+addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});upd();
+const f=document.getElementById('f'),st=document.getElementById('st'),btn=f.querySelector('button');
+f.addEventListener('submit',async e=>{
+e.preventDefault();btn.disabled=true;st.textContent='Sending...';
+try{const r=await fetch('/api/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('n').value,message:document.getElementById('m').value})});
+if(!r.ok)throw 0;st.textContent='Message sent. Thank you!';f.reset()}
+catch(x){st.textContent='Could not send. Please try again.'}
+btn.disabled=false});
+</script>
+</body>
+</html>
